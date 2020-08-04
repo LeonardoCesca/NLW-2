@@ -23,13 +23,16 @@ routes.post('/classes', async (request, response) => {
 
     const user_id = insertedUserIds[0];
 
-    await db('classes').insert({
+    const insertedClassesIds = await db('classes').insert({
         subject,
         cost,
         user_id,
     })
 
+    const class_id = insertedClassesIds[0];
+    
     return response.send();
 });
+
 
 export default routes;
