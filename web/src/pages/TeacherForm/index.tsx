@@ -29,7 +29,21 @@ function TeacherForm() {
                 <fieldset>
                     <legend>Seus dados</legend>
 
-                    <Select name="subject" label="Matéria" />
+                    <Select 
+                        name="subject" 
+                        label="Matéria"
+                        options={[
+                            { value: 'Artes', label: 'Artes'},
+                            { value: 'Biologia', label: 'Biologia'},
+                            { value: 'Ciências', label: 'Ciências'},
+                            { value: 'Educação Fisica', label: 'Educação Fisica'},
+                            { value: 'Geografia', label: 'Geografia'},
+                            { value: 'História', label: 'História'},
+                            { value: 'Matemática', label: 'Matemática'},
+                            { value: 'Português', label: 'Português'},
+                            { value: 'Química', label: 'Química'},
+                        ]}
+                    />
                     <Input name="cost" label="Custo da sua hora por aula" />
                 </fieldset>
 
