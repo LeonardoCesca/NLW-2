@@ -7,6 +7,7 @@ import Select from '../../components/Select';
 import warningIcon from '../../assets/images/icons/warning.svg';
 
 import './styles.css';
+import api from '../../services/api';
 
 function TeacherForm() {
 
@@ -35,15 +36,20 @@ function TeacherForm() {
 
     function handleCreateClass(e: FormEvent) {
         e.preventDefault();
-        console.log({
+
+        api.post('classes', {
             name,
-            avatar,
+            avatar, 
             whatsapp,
-            bio,
-            subject,
+            bio, 
+            subject, 
             cost,
-            scheduleItems
-        });
+            schedule: scheduleItems
+        }).then(() => {
+            alert('Cadastro realizado com sucesso!')
+        }).catch(() => {
+            alert('Erro no cadastro!');
+        })
     }
 
     function setScheduleItemValue(position: number, field: string, value: string) {
